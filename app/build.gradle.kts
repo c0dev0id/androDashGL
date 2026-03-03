@@ -5,6 +5,7 @@ plugins {
 android {
     namespace = "com.androDashGL"
     compileSdk = 35
+    ndkVersion = "27.3.13750724"
 
     defaultConfig {
         applicationId = "com.androDashGL"
@@ -16,7 +17,7 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags("-std=c++17", "-Wall", "-Wextra")
-                abiFilters("arm64-v8a", "x86_64")
+                abiFilters("arm64-v8a")
             }
         }
     }

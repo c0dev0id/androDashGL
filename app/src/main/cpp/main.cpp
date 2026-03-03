@@ -75,8 +75,8 @@ void android_main(android_app* app) {
         // Block if no surface, poll immediately if we have one to render
         const int timeout = (state.egl != nullptr) ? 0 : -1;
 
-        while (ALooper_pollAll(timeout, nullptr, &events,
-                               reinterpret_cast<void**>(&source)) >= 0) {
+        while (ALooper_pollOnce(timeout, nullptr, &events,
+                                reinterpret_cast<void**>(&source)) >= 0) {
             if (source != nullptr) {
                 source->process(app, source);
             }
